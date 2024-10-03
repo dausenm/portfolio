@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dausen</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="bg-white">
+
+  <!-- Portfolio Content -->
+  <div class="min-h-screen bg-white flex justify-center items-center relative">
+    <!-- Horizontal Line -->
+    <div class="horizontal-line"></div>
+
+    <!-- Dots for Projects (Positioned Along the Line) -->
+    <div class="project-dot" style="left: 25%;">
+      <div class="project-details">
+        <h3 class="text-lg font-bold">Project Title</h3>
+        <p>Brief description of the project.</p>
+      </div>
+    </div>
+
+    <div class="project-dot" style="left: 50%;">
+      <div class="project-details">
+        <h3 class="text-lg font-bold">Another Project Title</h3>
+        <p>Another brief description.</p>
+      </div>
+    </div>
+
+    <div class="project-dot" style="left: 75%;">
+      <div class="project-details">
+        <h3 class="text-lg font-bold">Final Project</h3>
+        <p>Project description here.</p>
+      </div>
+    </div>
+
+    <!-- Tilde Key Button at the Top Right -->
+    <div class="absolute" style="top: 16px; right: 16px; position: absolute;">
+      <button id="tilde-button" class="text-xl text-black border border-black rounded p-1">~</button>
+    </div>
+  </div>
+
+  <div id="terminal" class="hidden fixed inset-0 z-50">
+    <div id="terminal-output"></div>
+    <div id="terminal-input-container">
+      <span id="terminal-input-prompt">user></span>
+      <input id="terminal-input" autofocus />
+    </div>
+  </div>
+
+  <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
+</body>
+</html>
