@@ -41,13 +41,18 @@
     </div>
   </div>
 
-  <div id="terminal" class="hidden fixed inset-0 z-50">
+  <div id="terminal" class="hidden">
+    <div id="terminal-header">
+      Terminal
+      <button id="close-button" style="float: right; background: red; color: white; border: none; cursor: pointer; padding: 2px 5px;">X</button>
+    </div>
     <div id="terminal-output"></div>
     <div id="terminal-input-container">
-      <span id="terminal-input-prompt">user></span>
+      <span id="terminal-input-prompt">user> </span>
       <input id="terminal-input" autofocus />
     </div>
   </div>
+  
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
 </body>
