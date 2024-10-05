@@ -1,3 +1,6 @@
+<!--prevent screen from scrolling when you move the terminal around-->>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +17,33 @@
     <div class="horizontal-line"></div>
 
     <!-- Dots for Projects (Positioned Along the Line) -->
-    <div class="project-dot" style="left: 25%;">
+    <div class="project-dot central-dot" style="left: 25%;">
+      <!-- Main dot content -->
       <div class="project-details">
         <h3 class="text-lg font-bold">Project Title</h3>
         <p>Brief description of the project.</p>
+      </div>
+    
+      <!-- Sub-dots for different categories -->
+      <div class="sub-dot coding">
+        <div class="project-details">
+          <h3 class="text-lg font-bold">Coding Projects</h3>
+          <p>Overview of your coding projects</p>
+        </div>
+      </div>
+    
+      <div class="sub-dot professional">
+        <div class="project-details">
+          <h3 class="text-lg font-bold">Professional Experience</h3>
+          <p>Details about your professional/educational background</p>
+        </div>
+      </div>
+    
+      <div class="sub-dot personal">
+        <div class="project-details">
+          <h3 class="text-lg font-bold">Personal Projects</h3>
+          <p>Insight into personal projects or hobbies</p>
+        </div>
       </div>
     </div>
 
@@ -41,18 +67,36 @@
     </div>
   </div>
 
+  <!-- Terminal Element (Initially hidden) -->
   <div id="terminal" class="hidden">
+    <!-- Terminal Header and Close Button -->
     <div id="terminal-header">
-      Terminal
-      <button id="close-button" style="float: right; background: red; color: white; border: none; cursor: pointer; padding: 2px 5px;">X</button>
+      <button id="close-button">X</button>
     </div>
+
+    <!-- Terminal Output -->
     <div id="terminal-output"></div>
+
+    <!-- Terminal Input -->
     <div id="terminal-input-container">
       <span id="terminal-input-prompt">user> </span>
-      <input id="terminal-input" autofocus />
+      <input id="terminal-input" type="text" autofocus />
     </div>
+</div>
+
+<div id="resume-window" class="hidden">
+  <!-- Draggable Header with Fullscreen Button and Close Button -->
+  <div id="resume-header" style="padding: 1px; background-color: #222; cursor: move;">
+      <button id="resume-close-button" style="float: right; background-color: red; color: white; border: none; border-radius: 50%; cursor: pointer; padding: 2px 5px; font-size: 14px;">X</button>
+      <button id="fullscreen-button" style="float: right; background-color: green; color: white; border: none; cursor: pointer; padding: 2px 5px; font-size: 14px; margin-right: 5px;">⛶</button>
+
   </div>
-  
+
+  <!-- Embed PDF -->
+  <div id="resume-content" style="padding: 10px; background-color: white; color: black; font-family: Arial, sans-serif;">
+    <iframe id="resume-content" src="assets/resume.pdf"></iframe>
+  </div>
+</div>
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
 </body>
