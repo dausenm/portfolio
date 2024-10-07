@@ -14,55 +14,16 @@
   <!-- Portfolio Content -->
   <div class="min-h-screen bg-white flex justify-center items-center relative">
     <!-- Horizontal Line -->
-    <div class="horizontal-line"></div>
+  <div class="horizontal-line"></div>
 
-    <!-- Dots for Projects (Positioned Along the Line) -->
-    <div class="project-dot central-dot" style="left: 25%;">
-      <!-- Main dot content -->
-      <div class="project-details">
-        <h3 class="text-lg font-bold">Project Title</h3>
-        <p>Brief description of the project.</p>
-      </div>
-    
-      <!-- Sub-dots for different categories -->
-      <div class="sub-dot coding">
-        <div class="project-details">
-          <h3 class="text-lg font-bold">Coding Projects</h3>
-          <p>Overview of your coding projects</p>
-        </div>
-      </div>
-    
-      <div class="sub-dot professional">
-        <div class="project-details">
-          <h3 class="text-lg font-bold">Professional Experience</h3>
-          <p>Details about your professional/educational background</p>
-        </div>
-      </div>
-    
-      <div class="sub-dot personal">
-        <div class="project-details">
-          <h3 class="text-lg font-bold">Personal Projects</h3>
-          <p>Insight into personal projects or hobbies</p>
-        </div>
-      </div>
-    </div>
+  <!-- Dots for Projects (Positioned Along the Line) -->
+  <div class="line-dot" data-title="Programming Projects" data-sub1="Coding" data-sub2="Professional" data-sub3="Personal" style="left: 25%;"></div>
+  <div class="line-dot" data-title="Professional Experience" data-sub1="Work" data-sub2="Education" data-sub3="Certifications" style="left: 50%;"></div>
+  <div class="line-dot" data-title="Hobbies" data-sub1="Music" data-sub2="Art" data-sub3="Travel" style="left: 75%;"></div>
 
-    <div class="project-dot" style="left: 50%;">
-      <div class="project-details">
-        <h3 class="text-lg font-bold">Another Project Title</h3>
-        <p>Another brief description.</p>
-      </div>
-    </div>
 
-    <div class="project-dot" style="left: 75%;">
-      <div class="project-details">
-        <h3 class="text-lg font-bold">Final Project</h3>
-        <p>Project description here.</p>
-      </div>
-    </div>
-
-    <!-- Tilde Key Button at the Top Right -->
-    <div class="absolute" style="top: 16px; right: 16px; position: absolute;">
+  <!-- Tilde Key Button at the Top Right -->
+  <div class="absolute" style="top: 16px; right: 16px; position: absolute;">
       <button id="tilde-button" class="text-xl text-black border border-black rounded p-1">~</button>
     </div>
   </div>
@@ -89,7 +50,6 @@
   <div id="resume-header" style="padding: 1px; background-color: #222; cursor: move;">
       <button id="resume-close-button" style="float: right; background-color: red; color: white; border: none; border-radius: 50%; cursor: pointer; padding: 2px 5px; font-size: 14px;">X</button>
       <button id="fullscreen-button" style="float: right; background-color: green; color: white; border: none; cursor: pointer; padding: 2px 5px; font-size: 14px; margin-right: 5px;">⛶</button>
-
   </div>
 
   <!-- Embed PDF -->
@@ -99,5 +59,7 @@
 </div>
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
+
+  <script src="dots.js"></script>
 </body>
 </html>

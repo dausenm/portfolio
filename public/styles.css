@@ -25,6 +25,145 @@ body {
   cursor: pointer;
 }
 
+/* Sub-dots (initial state) */
+.sub-dot {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: center; /* Rotate around the center of the main dot */
+  transform: translate(0, 0) scale(0); /* Start at the center of the main dot */
+  opacity: 0; /* Hidden initially */
+  transition: all 0.5s ease;
+}
+
+/* Sub-dot positions on hover */
+.central-dot:hover .coding {
+  transform: translate(150px, 0) scale(1); /* Move coding dot to the right */
+  opacity: 1;
+}
+
+.central-dot:hover .professional {
+  transform: translate(-75px, -130px) scale(1); /* Move professional dot to the top-left */
+  opacity: 1;
+}
+
+.central-dot:hover .personal {
+  transform: translate(-75px, 130px) scale(1); /* Move personal dot to the bottom-left */
+  opacity: 1;
+}
+
+/* Styling for Text under project dots */
+.project-details {
+  display: block;
+  position: absolute;
+  top: 120%; /* Move it below the dot */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent; /* Ensure no background */
+  color: black; /* Text color */
+  text-align: center; /* Center the text */
+  padding: 5px;
+}
+
+.line-dot {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+/* Adjust sub-dot initial state */
+.sub-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: grey;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+/* Define keyframes for sub-dot rotation and expansion */
+@keyframes expandSubDots {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Central dot hover effect to expand sub-dots */
+.central-dot:hover .sub-dot {
+  animation: expandSubDots 0.8s forwards;
+  scale: 1;
+  opacity: 1;
+}
+
+/* Custom animations for each sub-dot */
+.central-dot:hover .coding {
+  animation-name: codingAnimation;
+}
+
+.central-dot:hover .professional {
+  animation-name: professionalAnimation;
+}
+
+.central-dot:hover .personal {
+  animation-name: personalAnimation;
+}
+
+/* Define specific keyframe animations for each sub-dot */
+@keyframes codingAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(120px, 0);
+  }
+}
+
+@keyframes professionalAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-60px, -104px);
+  }
+}
+
+@keyframes personalAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-60px, 104px);
+  }
+}
+
+
+.line-dot .project-details {
+  display: block;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  text-align: center;
+}
+
 /* Terminal window styling */
 #terminal {
   position: absolute;
@@ -169,39 +308,3 @@ body {
   transform: translate(-50%, -50%);
   transition: all 0.5s ease;
 }
-
-/* Sub-dots (initial state) */
-.sub-dot {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: grey;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform-origin: center; /* Rotate around the center of the main dot */
-  transform: translate(0, 0) scale(0); /* Start at the center of the main dot */
-  opacity: 0; /* Hidden initially */
-  transition: all 0.5s ease;
-}
-
-/* Sub-dot positions on hover */
-.central-dot:hover .coding {
-  transform: translate(150px, 0) scale(1); /* Move coding dot to the right */
-  opacity: 1;
-}
-
-.central-dot:hover .professional {
-  transform: translate(-75px, -130px) scale(1); /* Move professional dot to the top-left */
-  opacity: 1;
-}
-
-.central-dot:hover .personal {
-  transform: translate(-75px, 130px) scale(1); /* Move personal dot to the bottom-left */
-  opacity: 1;
-}
-
-
-
-
-
