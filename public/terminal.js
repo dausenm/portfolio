@@ -1,6 +1,5 @@
 console.log("JavaScript loaded successfully");
 
-
 let terminalOpened = false; // Flag to track if the terminal has been opened
 
 // Toggle terminal visibility when tilde key or tilde button is pressed
@@ -19,6 +18,8 @@ function toggleTerminal() {
   if (!terminal.classList.contains('hidden')) {
     document.getElementById('terminal-input').focus(); // Focus on input when terminal is opened
   }
+
+  printToTerminal(welcomeAscii); // Print welcome message to the terminal
 }
 
 // Toggle resume window with embedded PDF
@@ -235,13 +236,9 @@ terminalInput.addEventListener('keydown', function (event) {
       // Clear the input field
       terminalInput.value = '';
 
-      printToTerminal('opening resume...\n');
+      printToTerminal(asciiResume); // Print the ASCII resume to the terminal
     
       // Toggle the resume window to show the embedded PDF
-      toggleResumeWindow();
-    
-      // Add a new prompt after showing the resume
-      terminalOutput.appendChild(document.createElement('br'));
     }
     else if (inputValue) {
       // Check if there's a last prompt container before appending
@@ -270,3 +267,48 @@ function printToTerminal(message) {
   terminalOutput.appendChild(outputMessage); // Add message to terminal output
 }
 
+// ASCII version of the resume
+const asciiResume = `
+----------------------------------------------
+            DAUSEN MASON 
+   Aspiring Software Developer | Bartender
+----------------------------------------------
+PROFILE
+  Computer science student nearing graduation
+  from the University of Alabama with solid 
+  knowledge in programming, data structures, 
+  and algorithms. Experienced in the service 
+  industry with skills in teamwork, customer
+  service, and adaptability.
+
+EXPERIENCE
+  Lifeguard at TCPARA (2016-2019)
+    - Ensured pool safety, trained new guards.
+  
+  Shift Lead at Central Mesa (2019-Present)
+    - Managed operations, excelled in customer service.
+
+  Bartender at Nocturnal Tavern (2023-Present)
+    - Team management, customer engagement.
+
+SKILLS
+  - C, C++, Python, Java, JavaScript, HTML/CSS
+  - React, Node.js, Streamlit, Limited experience with Docker
+  - SQL, MongoDB
+  - Limited experience with AWS, GCP
+  - Git version control
+  - MS Office + Adobe Creative Cloud
+
+EDUCATION
+  The University of Alabama (2019-2024)
+  B.S. in Computer Science
+----------------------------------------------
+`;
+
+const welcomeAscii = `       __                           _          __                      _             __
+  ____/ /___ ___  __________  ____ ( )_____   / /____  _________ ___  (_)___  ____ _/ /
+ / __  / __ \`/ / / / ___/ _ \\/ __ \\|// ___/  / __/ _ \\/ ___/ __ \`__ \\/ / __ \\/ __ \`/ / 
+/ /_/ / /_/ / /_/ (__  )  __/ / / / (__  )  / /_/  __/ /  / / / / / / / / / / /_/ / /  
+\\__,_/\\__,_/\\__,_/____/\\___/_/ /_/ /____/   \\__/\\___/_/  /_/ /_/ /_/_/_/ /_/\\__,_/_/   
+                                                                          version 0.69.420                                                                                     
+`;
