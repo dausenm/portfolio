@@ -1,17 +1,18 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A personal portfolio website showcasing projects and experience.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "build": "npx tailwindcss -i public/styles.css -o public/styles.css --minify"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dausenm/portfolio.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["portfolio", "web", "projects", "resume", "tailwindcss"],
+  "author": "Dausen Mason",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dausenm/portfolio/issues"

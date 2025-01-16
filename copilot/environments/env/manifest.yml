@@ -1,0 +1,13 @@
+# The manifest for the "env" environment.
+
+# Your environment name will be used in naming your resources like VPC, cluster, etc.
+name: env
+type: Environment
+
+http:
+  public:
+    alias: dausenmason.com
+
+# Configure observability for your environment resources.
+observability:
+  container_insights: false
