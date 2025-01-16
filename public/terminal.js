@@ -204,7 +204,7 @@ terminalInput.addEventListener('keydown', function (event) {
       terminalInput.value = ''; // Clear input field
       
       // Step 3: Append the help message to the terminal
-      const helpMessage = "\tyou entered 'help' to view a list of available commands. fuck you.\n";
+      const helpMessage = "list of available commands:\n\t- help: displays a lit of available commands\n\t- stop: closes the terminal\n\t- resume: prints my resume to the terminal.\n";
       printToTerminal(helpMessage);
     
       // Step 4: Add a new user prompt after displaying the help message
@@ -274,12 +274,13 @@ const asciiResume = `
    Aspiring Software Developer | Bartender
 ----------------------------------------------
 PROFILE
-  Computer science student nearing graduation
-  from the University of Alabama with solid 
-  knowledge in programming, data structures, 
-  and algorithms. Experienced in the service 
-  industry with skills in teamwork, customer
-  service, and adaptability.
+  Recent Computer Science graduate with a passion for
+  software development and a background in service
+  industry. Seeking opportunities to grow and develop
+  my skills in the tech industry, as well as apply
+  skills developed in management and customer service.
+  Big fan of coffee, limp bizkit, video games,
+  and lays salt and vinegar.
 
 EXPERIENCE
   Lifeguard at TCPARA (2016-2019)
@@ -288,8 +289,8 @@ EXPERIENCE
   Shift Lead at Central Mesa (2019-Present)
     - Managed operations, excelled in customer service.
 
-  Bartender at Nocturnal Tavern (2023-Present)
-    - Team management, customer engagement.
+  General Manager at Nocturnal Tavern (2023-Present)
+    - Team management, customer engagement, leadership skills.
 
 SKILLS
   - C, C++, Python, Java, JavaScript, HTML/CSS
