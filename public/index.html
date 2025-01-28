@@ -10,39 +10,39 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="bg-white">
-
-  <div class="header" data-title = "dausen"></div>
-
-  <!-- Portfolio Content -->
-  <div class="min-h-screen bg-white flex justify-center items-center relative">
-    <!-- Horizontal Line -->
-  <div class="horizontal-line"></div>
-
-  <!-- Dots for Projects (Positioned Along the Line) -->
-  <div class="line-dot" 
-     data-title="Programming Projects" 
-     data-sub1="This Website" 
-     data-sub1-link="https://github.com/dausenm/portfolio"
-     data-sub2="FibHeap in C++" 
-     data-sub2-link="https://github.com/dausenm/fibonacci-heap"
-     data-sub3="Nocturnal Tavern Website" 
-     data-sub3-link="https://github.com/dausenm/nocturnal"
-     style="left: 25%;">
-</div>
-  <div class="line-dot" data-title="Professional Experience" data-sub1="Work" data-sub2="Education" data-sub3="Certifications" style="left: 50%;"></div>
-  <div class="line-dot" data-title="About Me" data-sub1="Contact" data-sub2="Hobbies" data-sub3="Photos" style="left: 75%;"></div>
-
-
-  <!-- Tilde Key Button at the Top Right -->
-  <div class="absolute" style="top: 16px; right: 16px; position: absolute;">
-      <button id="tilde-button" class="text-xl text-black border border-black rounded p-1">~</button>
+  <!-- Taskbar -->
+  <div id="taskbar">
+    <div class="taskbar-item" id="taskbar-terminal">
+      <img src="assets/terminal-icon.png" alt="Terminal" />
+    </div>
+    <div class="taskbar-item">
+      <a href="https://github.com/your-github-username" target="_blank">
+        <img src="assets/github.png" alt="GitHub" />
+      </a>
+    </div>
+    <div class="taskbar-item">
+      <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank">
+        <img src="assets/linkedin.png" alt="LinkedIn" />
+      </a>
     </div>
   </div>
 
-  <!-- GitHub Link at the Bottom Right -->
-  <div class="absolute" style="bottom: 16px; right: 16px; position: absolute;">
+  <!--Terminal Icon-->
+  <div id="terminal-icon" class="top-4 right-4 cursor-pointer p-2 bg-gray-800 rounded-lg hover:bg-gray-700">
+    <img src="assets/terminal-icon.png" alt="Terminal Icon" class="w-2 h-2">
+  </div>
+
+  <!--GitHub Icon-->
+  <div id="github-icon">
     <a href="https://github.com/dausenm" target="_blank">
-      <img src="assets/github.png" alt="GitHub" style="width: 32px; height: 32px;">
+      <img src="assets/github.png" alt="GitHub Icon">
+    </a>
+  </div>
+
+  <!-- LinkedIn Icon -->
+  <div id="linkedin-icon">
+    <a href="https://www.linkedin.com/in/dausenmason" target="_blank">
+      <img src="assets/linkedin.png" alt="LinkedIn Icon">
     </a>
   </div>
 
@@ -70,11 +70,6 @@
       <button id="fullscreen-button" style="float: right; background-color: green; color: white; border: none; cursor: pointer; padding: 2px 5px; font-size: 14px; margin-right: 5px;">⛶</button>
   </div>
 
-  <!-- Embed PDF -->
-  <div id="resume-content" style="padding: 10px; background-color: white; color: black; font-family: Arial, sans-serif;">
-    <iframe id="resume-content" src="assets/resume.pdf"></iframe>
-  </div>
-</div>
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
 

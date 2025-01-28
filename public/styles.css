@@ -1,1 +1,199 @@
-body{font-family:Arial,sans-serif}.header{background-color:#fff;padding:10px 0;position:fixed;top:50px;left:50%;transform:translateX(-50%)}.header,.header:before{color:#000;text-align:center;font-style:italic;font-family:Roboto,sans-serif}.header:before{content:attr(data-title);display:block;font-size:1.2em;margin-bottom:10px}.horizontal-line{position:absolute;top:50%;left:0;width:100%;height:4px;background-color:#000;transform:translateY(-50%)}.project-dot{background-color:#000;transform:translateY(-50%);cursor:pointer}.project-dot,.sub-dot{position:absolute;top:50%;width:40px;height:40px;border-radius:50%}.sub-dot{background-color:grey;left:50%;transform-origin:center;transform:translate(0) scale(0);opacity:0;transition:all .5s ease}.line-dot:hover .project-details{display:block;opacity:1;transition:opacity .3s ease}.project-details{opacity:0;transition:opacity .3s ease;display:block;position:absolute;top:120%;left:50%;transform:translateX(-50%);background-color:transparent;color:#000;text-align:center;padding:5px}.line-dot{position:absolute;top:50%;width:50px;height:50px;background-color:#000;border-radius:50%;cursor:pointer;transform:translateY(-50%)}.central-dot:hover .sub-dot{animation:expandSubDots .8s forwards;scale:1;opacity:1}.line-dot .project-details{display:block;position:absolute;top:120%;left:50%;transform:translateX(-50%);color:#000;text-align:center}#terminal{position:absolute;top:20%;left:20%;width:800px;height:600px;background-color:#000;color:#32cd32;font-family:monospace;padding:10px;border-radius:8px;border:2px solid #333;box-shadow:0 4px 8px rgba(0,0,0,.5);overflow-y:auto;overflow-x:hidden;z-index:1000}#terminal-header{height:30px;cursor:move;background-color:#000;border-bottom:0 solid #222}#terminal-output{padding:0;white-space:pre-wrap;word-wrap:break-word;color:#32cd32;display:block;align-items:flex-start;text-align:left}#terminal-input,#terminal-input-container{padding:0;background-color:#000}#terminal-input{color:#32cd32;border:none;outline:none;width:90%}#close-button{position:absolute;top:5px;right:10px;background-color:red;color:#fff;border:none;border-radius:50%;cursor:pointer;padding:2px 5px;font-size:14px}#resume-window{position:absolute;top:100px;left:100px;width:800px;height:600px;background-color:#000;color:#32cd32;font-family:monospace;padding:0;border-radius:8px;border:2px solid #333;box-shadow:0 4px 8px rgba(0,0,0,.5);z-index:1000;display:flex;flex-direction:column;resize:both;overflow:auto}#resume-window:before{content:none}.hidden{display:none!important}#resume-content{flex-grow:1;display:flex;justify-content:center;align-items:center;padding:0;width:100%;height:100%;overflow:auto}.fullscreen{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;overflow:hidden}#resume-content.fullscreen{width:100%;height:100%}#resume-window.hidden{display:none!important}.central-dot{position:absolute;top:50%;left:50%;width:60px;height:60px;background-color:#000;border-radius:50%;transform:translate(-50%,-50%);transition:all .5s ease}
+    body {
+        font-family: Arial, sans-serif;
+    }
+    
+    /* Header */
+    .header {
+        background-color: #fff;
+        padding: 10px 0;
+        position: fixed;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #000;
+        text-align: center;
+        font-style: italic;
+        font-family: Roboto, sans-serif;
+    }
+    .header:before {
+        content: attr(data-title);
+        display: block;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    
+    /* Terminal */
+    #terminal {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 800px;
+        height: 600px;
+        background-color: #000;
+        color: #32cd32;
+        font-family: monospace;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        overflow-y: auto;
+        overflow-x: hidden;
+        z-index: 1000;
+    }
+    
+    #terminal-header {
+        height: 30px;
+        cursor: move;
+        background-color: #000;
+        border-bottom: 0 solid #222;
+    }
+    
+    #terminal-output {
+        padding: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        color: #32cd32;
+        display: block;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    #terminal-input-container {
+        padding: 0;
+        background-color: #000;
+    }
+    
+    #terminal-input {
+        color: #32cd32; 
+        background-color: transparent; 
+        border: none; 
+        outline: none; 
+        width: 90%; 
+        font-family: monospace; 
+        padding: 0; 
+        caret-color: #32cd32; 
+    }
+    
+    #close-button {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background-color: red;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 2px 5px;
+        font-size: 14px;
+    }
+    
+    /* Terminal Icon */
+    #terminal-icon {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        cursor: pointer;
+        padding: 0px;
+        background-color: transparent;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+    
+    #terminal-icon:hover {
+        background-color: #444;
+    }
+    
+    #terminal-icon img {
+        width: 90px; 
+        height: 90px;
+    }
+
+    #github-icon {
+        position: absolute;
+        top: 120px; /* Positioned directly under the terminal icon */
+        left: 16px; /* Same alignment as the terminal icon */
+        width: 90px;
+        height: 90px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #github-icon img {
+        width: 100%; /* Ensure the icon fills the container */
+        height: 100%;
+        border-radius: 50%; /* Make it circular */
+    }
+
+    /* Add hover effect */
+    #github-icon:hover {
+        background-color: rgba(0, 0, 0, 0.2); /* Subtle hover background */
+        border-radius: 50%;
+        transform: scale(1.1); /* Slight zoom effect on hover */
+    }
+
+    /* LinkedIn Icon Styling */
+    #linkedin-icon {
+        position: absolute;
+        top: 240px; /* Positioned on the left side */
+        left: 16px; /* Align with the left edge */
+        width: 90px;
+        height: 90px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #linkedin-icon img {
+        width: 100%; /* Ensure the icon fills the container */
+        height: 100%;
+        border-radius: 50%; /* Make it circular */
+    }
+
+    /* Add hover effect */
+    #linkedin-icon:hover {
+        background-color: rgba(0, 0, 0, 0.2); /* Subtle hover background */
+        border-radius: 50%;
+        transform: scale(1.1); /* Slight zoom effect on hover */
+    }
+
+    /* Taskbar Styling */
+    #taskbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        border-top: 2px solid #333;
+    }
+    
+    /* Taskbar items */
+    .taskbar-item {
+        margin: 0 20px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .taskbar-item img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px; /* Add a subtle rounding for icons */
+        background-color: transparent; /* No background initially */
+    }
+    
+    /* Hover effect for icons */
+    .taskbar-item:hover {
+        transform: scale(1.1); /* Slight zoom effect */
+        opacity: 0.8;
+    }
+  
+    /* Hidden Elements */
+    .hidden {
+        display: none !important;
+    }
+  

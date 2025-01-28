@@ -22,45 +22,6 @@ function toggleTerminal() {
   printToTerminal(welcomeAscii); // Print welcome message to the terminal
 }
 
-// Toggle resume window with embedded PDF
-function toggleResumeWindow() {
-  const resumeWindow = document.getElementById('resume-window');
-  
-  // Toggle visibility
-  resumeWindow.classList.toggle('hidden');
-  
-  // Only attach the drag functionality if the resume window is visible
-  if (!resumeWindow.classList.contains('hidden')) {
-    const resumeHeader = document.getElementById('resume-header');
-    
-    resumeHeader.onmousedown = function (e) {
-      dragElement(resumeWindow, e);
-    };
-  } else {
-    const resumeHeader = document.getElementById('resume-header');
-    resumeHeader.onmousedown = null; // Remove drag when hidden
-  }
-}
-
-// Close resume when 'X' button is clicked
-document.getElementById('resume-close-button').addEventListener('click', function () {
-  toggleResumeWindow();
-});
-
-// Toggle Fullscreen mode for the resume window
-document.getElementById('fullscreen-button').addEventListener('click', function () {
-  const resumeWindow = document.getElementById('resume-window');
-  resumeWindow.classList.toggle('fullscreen');
-  
-  if (resumeWindow.classList.contains('fullscreen')) {
-    resumeWindow.style.width = '100vw';
-    resumeWindow.style.height = '100vh';
-  } else {
-    resumeWindow.style.width = '800px'; // Default back to original size
-    resumeWindow.style.height = '600px';
-  }
-});
-
 // Draggable functionality (only when called)
 function dragElement(elmnt, e) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -141,15 +102,8 @@ function clearTerminal() {
   document.getElementById('terminal-input').value = ''; // Clear input field
 }
 
-// Event listener for tilde key (~)
-document.addEventListener('keydown', function(event) {
-  if (event.key === '~') {
-    toggleTerminal();
-  }
-});
-
 // Toggle terminal with a button
-document.getElementById('tilde-button').addEventListener('click', function () {
+document.getElementById('terminal-icon').addEventListener('click', function () {
   toggleTerminal();
 });
 
@@ -194,20 +148,21 @@ terminalInput.addEventListener('keydown', function (event) {
       terminalOpened = false; // Reset flag so prompt is added again next time
     } 
     else if (inputValue.toLowerCase() === 'help') {
-      // Step 1: Append the user's input 'help' to the terminal
       const lastPromptContainer = terminalOutput.lastChild;
       const userInput = document.createElement('span');
       userInput.textContent = inputValue; // This is the 'help' input
       lastPromptContainer.appendChild(userInput); // Add input to the last prompt
       
-      // Step 2: Clear the input field after appending the user's input
       terminalInput.value = ''; // Clear input field
       
-      // Step 3: Append the help message to the terminal
-      const helpMessage = "list of available commands:\n\t- help: displays a lit of available commands\n\t- stop: closes the terminal\n\t- resume: prints my resume to the terminal.\n";
+      const helpMessage = "list of available commands:\n\t- help: displays a lit of available commands\n\t- stop: closes the terminal\n\t- clear: clears the terminal contents\n\t- resume: prints my resume to the terminal.\n";
       printToTerminal(helpMessage);
-    
-      // Step 4: Add a new user prompt after displaying the help message
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
+    else if (inputValue.toLowerCase() === 'clear') {
+      clearTerminal(); // Clear the terminal output
+  
       terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
     }
     else if (inputValue.toLowerCase() === 'dausen') {
