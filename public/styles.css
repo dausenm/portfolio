@@ -10,13 +10,13 @@
 
     .desktop-icon {
         position: absolute;
-        width: 90px; /* Adjust as needed */
+        width: 90px; 
         text-align: center;
         cursor: pointer;
     }
     
     /* Adjust icon positions */
-    #terminal-icon { top: 16px; left: 16px; }
+    .desktop-icon:nth-child(1) { top: 16px; left: 16px; } /* GitHub */
     .desktop-icon:nth-child(2) { top: 120px; left: 16px; } /* GitHub */
     .desktop-icon:nth-child(3) { top: 240px; left: 16px; } /* LinkedIn */
     
@@ -25,12 +25,6 @@
         height: 64px;
         display: block;
         margin: 0 auto;
-    }
-
-    /* Add hover effect */
-    .desktop-icon a img:hover {
-        transform: scale(1.1);
-        filter: brightness(1.2);
     }
     
     .icon-caption {

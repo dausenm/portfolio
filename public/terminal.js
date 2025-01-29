@@ -102,11 +102,13 @@ function clearTerminal() {
   document.getElementById('terminal-input').value = ''; // Clear input field
 }
 
-// Toggle terminal with a button
+// Terminal icon on the desktop opens terminal
 document.getElementById('terminal-icon').addEventListener('click', function () {
   toggleTerminal();
 });
 
+// Terminal icon on the taskbar opens terminal
+document.getElementById("taskbar-terminal").addEventListener("click", toggleTerminal);
 
 // Handle terminal input
 const terminalInput = document.getElementById('terminal-input');
