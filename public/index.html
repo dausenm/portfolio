@@ -1,6 +1,3 @@
-<!--prevent screen from scrolling when you move the terminal around-->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,36 +13,39 @@
       <img src="assets/terminal-icon.png" alt="Terminal" />
     </div>
     <div class="taskbar-item">
-      <a href="https://github.com/your-github-username" target="_blank">
+      <a href="https://github.com/dausenm" target="_blank">
         <img src="assets/github.png" alt="GitHub" />
       </a>
     </div>
     <div class="taskbar-item">
-      <a href="https://www.linkedin.com/in/your-linkedin-username" target="_blank">
+      <a href="https://www.linkedin.com/in/dausenmason" target="_blank">
         <img src="assets/linkedin.png" alt="LinkedIn" />
       </a>
     </div>
   </div>
 
-  <!--Terminal Icon-->
-  <div id="terminal-icon" class="top-4 right-4 cursor-pointer p-2 bg-gray-800 rounded-lg hover:bg-gray-700">
-    <img src="assets/terminal-icon.png" alt="Terminal Icon" class="w-2 h-2">
+  <!-- Terminal Icon -->
+  <div class="desktop-icon">
+    <img id="terminal-icon" src="assets/terminal-icon.png" alt="Terminal Icon">
+    <span class="icon-caption">Terminal</span>
   </div>
 
-  <!--GitHub Icon-->
-  <div id="github-icon">
+  <!-- GitHub Icon -->
+  <div class="desktop-icon">
     <a href="https://github.com/dausenm" target="_blank">
-      <img src="assets/github.png" alt="GitHub Icon">
+        <img src="assets/github.png" alt="GitHub Icon">
     </a>
+    <span class="icon-caption">GitHub</span>
   </div>
 
   <!-- LinkedIn Icon -->
-  <div id="linkedin-icon">
+  <div class="desktop-icon">
     <a href="https://www.linkedin.com/in/dausenmason" target="_blank">
-      <img src="assets/linkedin.png" alt="LinkedIn Icon">
+        <img src="assets/linkedin.png" alt="LinkedIn Icon">
     </a>
+    <span class="icon-caption">LinkedIn</span>
   </div>
-
+  
   <!-- Terminal Element (Initially hidden) -->
   <div id="terminal" class="hidden">
     <!-- Terminal Header and Close Button -->
@@ -73,6 +73,5 @@
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
 
-  <script src="/dots.js"></script>
 </body>
 </html>

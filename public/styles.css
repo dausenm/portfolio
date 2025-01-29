@@ -1,10 +1,48 @@
     body {
         font-family: Arial, sans-serif;
     }
+
+    /* Background wallpaper */
+    body {
+        background: url("assets/bg.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .desktop-icon {
+        position: absolute;
+        width: 90px; /* Adjust as needed */
+        text-align: center;
+    }
+    
+    /* Adjust icon positions */
+    .desktop-icon:nth-child(1) { top: 16px; left: 16px; } /* Terminal */
+    .desktop-icon:nth-child(2) { top: 120px; left: 16px; } /* GitHub */
+    .desktop-icon:nth-child(3) { top: 240px; left: 16px; } /* LinkedIn */
+    
+    .desktop-icon img {
+        width: 64px; /* Ensure all icons are uniform */
+        height: 64px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Add hover effect */
+    .desktop-icon a img:hover {
+        transform: scale(1.1);
+        filter: brightness(1.2);
+    }
+    
+    .icon-caption {
+        display: block;
+        margin-top: 4px;
+        font-size: 14px;
+        color: white;
+        text-align: center;
+    }
     
     /* Header */
     .header {
-        background-color: #fff;
+        background-color: gray;
         padding: 10px 0;
         position: fixed;
         top: 50px;
@@ -85,74 +123,6 @@
         cursor: pointer;
         padding: 2px 5px;
         font-size: 14px;
-    }
-    
-    /* Terminal Icon */
-    #terminal-icon {
-        position: absolute;
-        top: 16px;
-        left: 16px;
-        cursor: pointer;
-        padding: 0px;
-        background-color: transparent;
-        border-radius: 8px;
-        transition: background-color 0.3s ease;
-    }
-    
-    #terminal-icon:hover {
-        background-color: #444;
-    }
-    
-    #terminal-icon img {
-        width: 90px; 
-        height: 90px;
-    }
-
-    #github-icon {
-        position: absolute;
-        top: 120px; /* Positioned directly under the terminal icon */
-        left: 16px; /* Same alignment as the terminal icon */
-        width: 90px;
-        height: 90px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    #github-icon img {
-        width: 100%; /* Ensure the icon fills the container */
-        height: 100%;
-        border-radius: 50%; /* Make it circular */
-    }
-
-    /* Add hover effect */
-    #github-icon:hover {
-        background-color: rgba(0, 0, 0, 0.2); /* Subtle hover background */
-        border-radius: 50%;
-        transform: scale(1.1); /* Slight zoom effect on hover */
-    }
-
-    /* LinkedIn Icon Styling */
-    #linkedin-icon {
-        position: absolute;
-        top: 240px; /* Positioned on the left side */
-        left: 16px; /* Align with the left edge */
-        width: 90px;
-        height: 90px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    #linkedin-icon img {
-        width: 100%; /* Ensure the icon fills the container */
-        height: 100%;
-        border-radius: 50%; /* Make it circular */
-    }
-
-    /* Add hover effect */
-    #linkedin-icon:hover {
-        background-color: rgba(0, 0, 0, 0.2); /* Subtle hover background */
-        border-radius: 50%;
-        transform: scale(1.1); /* Slight zoom effect on hover */
     }
 
     /* Taskbar Styling */
