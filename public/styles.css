@@ -16,9 +16,7 @@
     }
     
     /* Adjust icon positions */
-    .desktop-icon:nth-child(1) { top: 16px; left: 16px; } /* GitHub */
-    .desktop-icon:nth-child(2) { top: 120px; left: 16px; } /* GitHub */
-    .desktop-icon:nth-child(3) { top: 240px; left: 16px; } /* LinkedIn */
+    .desktop-icon:nth-child(1) { top: 16x; left: 16px; } /* GitHub */
     
     .desktop-icon img {
         width: 64px; /* Ensure all icons are uniform */
@@ -130,7 +128,7 @@
         background-color: rgba(0, 0, 0, 0.8);
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: left;
         z-index: 1000;
         border-top: 2px solid #333;
     }
@@ -156,7 +154,73 @@
         transform: scale(1.1); /* Slight zoom effect */
         opacity: 0.8;
     }
-  
+
+    /* Start Button */
+    .start-button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+        background-color: rgba(50, 50, 50, 0.9);
+        border-radius: 4px;
+        cursor: pointer;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background 0.2s ease-in-out;
+    }
+
+    .start-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .start-button:hover {
+        background-color: rgba(70, 70, 70, 0.9);
+    }
+
+    #start-menu {
+        position: absolute;
+        bottom: 50px;
+        left: 10px;
+        width: 200px;
+        background: rgba(20, 20, 20, 0.9);
+        border-radius: 8px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        opacity: 0;
+        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    #start-menu.show {
+        opacity: 1;
+    }
+    
+    
+    .start-menu-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .start-menu-list li {
+        padding: 10px;
+        border-radius: 4px;
+        transition: background 0.3s ease;
+    }
+    
+    .start-menu-list li a {
+        color: cyan;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    
+    .start-menu-list li:hover {
+        background: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+    }
+    
+
     /* Hidden Elements */
     .hidden {
         display: none !important;

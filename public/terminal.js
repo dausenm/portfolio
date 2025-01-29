@@ -270,3 +270,14 @@ const welcomeAscii = `       __                           _          __         
 \\__,_/\\__,_/\\__,_/____/\\___/_/ /_/ /____/   \\__/\\___/_/  /_/ /_/ /_/_/_/ /_/\\__,_/_/   
                                                                           version 0.69.420                                                                                     
 `;
+
+
+
+
+
+//Start Menu
+document.getElementById("start-button").addEventListener("click", function () {
+  console.log("Start button clicked");
+  let startMenu = document.getElementById("start-menu");
+  startMenu.classList.toggle("show");
+});
