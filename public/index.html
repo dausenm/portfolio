@@ -30,8 +30,8 @@
   <!-- Start Menu (Initially Hidden) -->
   <div id="start-menu">
     <ul class="start-menu-list">
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Resume</a></li>
+      <li id="projects-option">Projects</li>
+      <li id="resume-option">Resume</li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Settings</a></li>
     </ul>
@@ -61,11 +61,18 @@
 </div>
 
 <div id="resume-window" class="hidden">
-  <!-- Draggable Header with Fullscreen Button and Close Button -->
-  <div id="resume-header" style="padding: 1px; background-color: #222; cursor: move;">
-      <button id="resume-close-button" style="float: right; background-color: red; color: white; border: none; border-radius: 50%; cursor: pointer; padding: 2px 5px; font-size: 14px;">X</button>
-      <button id="fullscreen-button" style="float: right; background-color: green; color: white; border: none; cursor: pointer; padding: 2px 5px; font-size: 14px; margin-right: 5px;">⛶</button>
+  <!-- Resume Header with Fullscreen and Close Buttons -->
+  <div id="resume-header">
+      <button id="resume-close-button">X</button>
+      <button id="fullscreen-button">⛶</button>
   </div>
+
+  <!-- Embed PDF -->
+  <div id="resume-content">
+    <iframe src="assets/resume.pdf" width="100%" height="100%"></iframe>
+  </div>
+</div>
+
 
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->

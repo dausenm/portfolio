@@ -22,38 +22,6 @@ function toggleTerminal() {
   printToTerminal(welcomeAscii); // Print welcome message to the terminal
 }
 
-// Draggable functionality (only when called)
-function dragElement(elmnt, e) {
-  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  e = e || window.event;
-  
-  // Check if Mouse1 (left mouse button) is pressed
-  if (e.button !== 0) return; // Only allow dragging with left mouse button
-
-  e.preventDefault();
-  pos3 = e.clientX;
-  pos4 = e.clientY;
-  
-  document.onmouseup = closeDragElement;
-  document.onmousemove = elementDrag;
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    elmnt.style.top = (elmnt.offsetTop - pos2) + 'px';
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + 'px';
-  }
-
-  function closeDragElement() {
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-
 // Draggable terminal window
 function dragElement(elmnt) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -87,8 +55,11 @@ function dragElement(elmnt) {
   }
 }
 
-// Call dragElement on the terminal to make it draggable
-dragElement(document.getElementById('terminal'));
+// Apply dragging functionality to terminal and resume
+document.addEventListener("DOMContentLoaded", function () {
+  dragElement(document.getElementById("terminal"));
+  dragElement(document.getElementById("resume-window"));
+});
 
 // Close terminal when 'X' button is clicked
 document.getElementById('close-button').addEventListener('click', function () {
@@ -280,4 +251,22 @@ document.getElementById("start-button").addEventListener("click", function () {
   console.log("Start button clicked");
   let startMenu = document.getElementById("start-menu");
   startMenu.classList.toggle("show");
+});
+
+//Opens resume window
+document.getElementById("resume-option").addEventListener("click", function () {
+  let resumeWindow = document.getElementById("resume-window");
+  resumeWindow.classList.toggle("hidden");
+});
+
+// Close button functionality
+document.getElementById("resume-close-button").addEventListener("click", function () {
+  let resumeWindow = document.getElementById("resume-window");
+  resumeWindow.classList.toggle("hidden");
+});
+
+// Fullscreen toggle
+document.getElementById("fullscreen-button").addEventListener("click", function () {
+  let resumeContent = document.getElementById("resume-content");
+  resumeContent.classList.toggle("fullscreen");
 });

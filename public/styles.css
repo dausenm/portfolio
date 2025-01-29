@@ -17,7 +17,7 @@
     
     /* Adjust icon positions */
     .desktop-icon:nth-child(1) { top: 16x; left: 16px; } /* GitHub */
-    
+
     .desktop-icon img {
         width: 64px; /* Ensure all icons are uniform */
         height: 64px;
@@ -219,10 +219,89 @@
         background: rgba(255, 255, 255, 0.1);
         cursor: pointer;
     }
+  
+    #resume-window {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 800px;
+        height: 600px;
+        background-color: #222;
+        color: white;
+        font-family: monospace;
+        border-radius: 8px;
+        border: 2px solid #444;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        resize: both;
+        overflow: auto;
+        padding: 10px;
+    }
     
-
-    /* Hidden Elements */
+    /* Resume Header */
+    #resume-header {
+        background-color: #333;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: move;
+    }
+    
+    /* Close Button */
+    #resume-close-button {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    
+    /* Fullscreen Button */
+    #fullscreen-button {
+        background-color: green;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 5px 10px;
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    
+    /* Resume Content */
+    #resume-content {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Fullscreen Mode */
+    .fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9999;
+        overflow: hidden;
+    }
+    
+    #resume-content.fullscreen {
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Hidden Class */
     .hidden {
         display: none !important;
     }
-  
+    
