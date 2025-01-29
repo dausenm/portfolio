@@ -12,10 +12,11 @@
         position: absolute;
         width: 90px; /* Adjust as needed */
         text-align: center;
+        cursor: pointer;
     }
     
     /* Adjust icon positions */
-    .desktop-icon:nth-child(1) { top: 16px; left: 16px; } /* Terminal */
+    #terminal-icon { top: 16px; left: 16px; }
     .desktop-icon:nth-child(2) { top: 120px; left: 16px; } /* GitHub */
     .desktop-icon:nth-child(3) { top: 240px; left: 16px; } /* LinkedIn */
     
