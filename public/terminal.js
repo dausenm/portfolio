@@ -253,6 +253,18 @@ document.getElementById("start-button").addEventListener("click", function () {
   startMenu.classList.toggle("show");
 });
 
+// Close the menu if clicking anywhere outside of it
+document.addEventListener("click", (event) => {
+  let startMenu = document.getElementById("start-menu");
+  let startButton = document.getElementById("start-button");
+
+  // If clicking outside the start menu AND not on the start button
+  if (!startMenu.contains(event.target) && !startButton.contains(event.target)) {
+    console.log("Clicked outside of the start menu, closing it.");
+    startMenu.classList.remove("show");
+  }
+});
+
 //Opens resume window
 document.getElementById("resume-option").addEventListener("click", function () {
   let resumeWindow = document.getElementById("resume-window");

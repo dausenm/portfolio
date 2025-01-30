@@ -199,6 +199,7 @@
     
     .start-menu-list {
         list-style: none;
+        color: cyan;
         padding: 0;
         margin: 0;
     }
