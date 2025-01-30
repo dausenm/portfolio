@@ -243,8 +243,34 @@ const welcomeAscii = `       __                           _          __         
 `;
 
 
+// Date and time on the taskbar
+function updateClock() {
+  let now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let ampm = "";
+  const is24Hour = localStorage.getItem("is24Hour") === "true"; // Get stored preference
+  
+  if (!is24Hour) {  // Convert to 12-hour format if needed
+        ampm = hours >= 12 ? " PM" : " AM";
+        hours = hours % 12 || 12; // Convert 0 to 12
+    }
 
+  minutes = minutes < 10 ? '0' + minutes : minutes; // Add leading zero
+  let timeString = `${hours}:${minutes} ${ampm}`;
 
+  let dateString = now.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric"
+  });
+
+  document.getElementById("taskbar-time").innerHTML = `${dateString} | ${timeString}`;
+}
+
+// Update clock every second
+setInterval(updateClock, 1000);
+updateClock(); // Initial call
 
 //Start Menu
 document.getElementById("start-button").addEventListener("click", function () {
@@ -282,3 +308,71 @@ document.getElementById("fullscreen-button").addEventListener("click", function 
   let resumeContent = document.getElementById("resume-content");
   resumeContent.classList.toggle("fullscreen");
 });
+
+// Contact Window
+document.getElementById("contact-option").addEventListener("click", function () {
+  let contactWindow = document.getElementById("contact-window");
+  contactWindow.classList.toggle("hidden");
+});
+
+// Close Contact Window
+document.getElementById("close-contact").addEventListener("click", function () {
+  document.getElementById("contact-window").classList.add("hidden");
+});
+
+// Make Contact Window Draggable
+dragElement(document.getElementById("contact-window"));
+
+//Opens settings window
+document.getElementById("settings-option").addEventListener("click", function () {
+  let settingsWindow = document.getElementById("settings-window");
+  settingsWindow.classList.toggle("hidden");
+});
+
+document.getElementById("close-settings").addEventListener("click", function () {
+  let settingsWindow = document.getElementById("settings-window");
+  settingsWindow.classList.add("hidden");
+});
+
+dragElement(document.getElementById("settings-window"), document.getElementById("settings-header"));
+
+// Light mode / dark mode toggle
+// Get dark mode toggle switch
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+
+// Function to enable Dark Mode
+function enableDarkMode() {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark"); // Save preference
+}
+
+// Function to disable Dark Mode
+function disableDarkMode() {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("theme", "light"); // Save preference
+}
+
+// Check local storage for theme preference
+if (localStorage.getItem("theme") === "dark") {
+    enableDarkMode();
+    darkModeToggle.checked = true; // Keep switch on
+}
+
+// Toggle Dark Mode when switch is clicked
+darkModeToggle.addEventListener("change", () => {
+    if (darkModeToggle.checked) {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+});
+
+// 24-hour time toggle
+document.getElementById("time-format-toggle").addEventListener("change", function() {
+  const isChecked = this.checked;
+  localStorage.setItem("is24Hour", isChecked); // Save preference
+  updateClock(); // Apply the new setting immediately
+});
+
+// Set the toggle state based on saved preference
+document.getElementById("time-format-toggle").checked = localStorage.getItem("is24Hour") === "true";

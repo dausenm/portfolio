@@ -25,6 +25,7 @@
         <img src="assets/linkedin.png" alt="LinkedIn" />
       </a>
     </div>
+    <div id="taskbar-time"></div>
   </div>
 
   <!-- Start Menu (Initially Hidden) -->
@@ -32,8 +33,8 @@
     <ul class="start-menu-list">
       <li id="projects-option">Projects</li>
       <li id="resume-option">Resume</li>
-      <li><a href="#">Contact</a></li>
-      <li><a href="#">Settings</a></li>
+      <li id="contact-option">Contact</li>
+      <li id="settings-option">Settings</li>
     </ul>
   </div>
 
@@ -73,7 +74,47 @@
   </div>
 </div>
 
+<!-- Contact Window (Initially hidden) -->
+<div id="contact-window" class="window hidden">
+  <div id="contact-header" class="window-header">
+    <span>Contact Info</span>
+    <button id="close-contact" class="close-button">X</button>
+  </div>
+  <div class="window-content">
+    <p><strong>Name:</strong> Dausen Mason</p>
+    <p><strong>Email:</strong> <a href="mailto:dausenmason@yahoo.com">dausenmason@yahoo.com</a></p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/dausenm" target="_blank">github.com/dausenm</a></p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/dausenmason" target="_blank">linkedin.com/in/dausenmason</a></p>
+  </div>
+</div>
 
+<!-- Settings Window -->
+<div id="settings-window" class="window hidden">
+  <div id="settings-header" class="window-header">
+    <span>Settings</span>
+    <button id="close-settings" class="close-button">X</button>
+  </div>
+  <div class="window-content">
+    <p>Welcome to Settings! Customize your experience below.</p>
+    <ul>
+      <li>🌓 <b>Theme:</b> Light / Dark Mode (Limited App Usage at the Moment)</li>
+      <div class="settings-option">
+        <span>Dark Mode</span>
+        <label class="switch">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <li>🖼️ <b>Wallpaper:</b> Choose a background (Coming Soon!)</li>
+      <li>🕒 <b>Clock Format:</b> 12-hour / 24-hour</li>
+      <label class="switch">
+        <input type="checkbox" id="time-format-toggle">
+        <span class="slider round"></span>
+      </label>
+      <li>🔄 <b>Reset to Default</b></li>
+    </ul>
+  </div>
+</div>
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
 

@@ -154,6 +154,19 @@
         transform: scale(1.1); /* Slight zoom effect */
         opacity: 0.8;
     }
+    
+    /* Taskbar Clock */
+    #taskbar-time {
+        position: absolute;
+        right: 16px;
+        bottom: 5px;
+        color: white;
+        font-family: monospace;
+        font-size: 14px;
+        padding: 4px 8px;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 4px;
+    }
 
     /* Start Button */
     .start-button {
@@ -300,7 +313,178 @@
         width: 100%;
         height: 100%;
     }
-    
+
+    /* Contact Window */
+    #contact-window {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        width: 400px;
+        height: auto;
+        background-color: #000;
+        color: #32cd32;
+        font-family: monospace;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .window-header {
+        display: flex;
+        justify-content: space-between;
+        background-color: #222;
+        padding: 5px;
+        cursor: move;
+    }
+
+    .close-button {
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 2px 5px;
+        font-size: 14px;
+        border-radius: 50%;
+    }
+
+    .window-content {
+        padding: 10px;
+    }
+
+    .window-content a {
+        color: cyan;
+        text-decoration: none;
+    }
+
+    .window-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* Settings Window */
+    #settings-window {
+        position: absolute;
+        top: 100px;
+        left: 150px;
+        width: 600px;
+        height: 300px;
+        background-color: white;
+        color: black;
+        font-family: monospace;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #444;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        z-index: 1000;
+    }
+
+    .dark-mode #settings-window {
+        background-color: #000;
+        color: #32cd32
+    }
+
+    .window-header {
+        height: 30px;
+        background-color: #111;
+        color: #32cd32;
+        padding: 5px;
+        cursor: move;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .window-content {
+        padding: 10px;
+    }
+
+    .close-button {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 2px 5px;
+        font-size: 14px;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+        background-color: #111;
+        color: #fff;
+    }
+
+    /* Taskbar, Windows, and Other Elements */
+    .dark-mode .window,
+    .dark-mode .taskbar {
+        background-color: #222;
+        color: #fff;
+    }
+
+    .dark-mode .window-header {
+        background-color: #000;
+    }
+
+    .dark-mode .icon-caption {
+        color: #fff;
+    }
+
+    /* Toggle Switch Styles */
+    .settings-option {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 34px;
+        height: 20px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #32cd32;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(14px);
+    }
+
     /* Hidden Class */
     .hidden {
         display: none !important;
