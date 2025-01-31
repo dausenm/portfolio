@@ -416,3 +416,9 @@ document.getElementById("wallpaper-select").addEventListener("click", function (
   console.log("Dropdown clicked!");
 });
 
+// Open GitHub repositories when clicking "Projects"
+document.getElementById("projects-option").addEventListener("click", function () {
+  window.open("https://github.com/dausenm?tab=repositories", "_blank");
+});
+
+
