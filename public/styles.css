@@ -4,9 +4,14 @@
 
     /* Background wallpaper */
     body {
-        background: url("assets/bg.jpg") no-repeat center center fixed;
+        background-image: url('assets/wallpapers/xp.jpg');
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        transition: background-image 0.5s ease-in-out;
     }
+    
 
     .desktop-icon {
         position: absolute;
@@ -16,7 +21,8 @@
     }
     
     /* Adjust icon positions */
-    .desktop-icon:nth-child(1) { top: 16x; left: 16px; } /* GitHub */
+    .desktop-icon:nth-child(3) { top: 16px; left: 16px; } /* GitHub */
+    .desktop-icon:nth-child(4) { top: 120px; left: 16px; } /* README */
 
     .desktop-icon img {
         width: 64px; /* Ensure all icons are uniform */
@@ -321,16 +327,22 @@
         left: 30%;
         width: 400px;
         height: auto;
-        background-color: #000;
-        color: #32cd32;
+        background-color: white; /* Light mode background */
+        color: black; /* Light mode text */
         font-family: monospace;
         padding: 10px;
         border-radius: 8px;
-        border: 2px solid #333;
+        border: 2px solid #444;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         z-index: 1000;
         display: flex;
         flex-direction: column;
+    }
+
+    .dark-mode #contact-window {
+        background-color: #000; 
+        color: #32cd32; 
+        border: 2px solid #333;
     }
 
     .window-header {
@@ -369,8 +381,8 @@
         position: absolute;
         top: 100px;
         left: 150px;
-        width: 600px;
-        height: 300px;
+        width: 700px;
+        height: 800px;
         background-color: white;
         color: black;
         font-family: monospace;
@@ -384,6 +396,18 @@
     .dark-mode #settings-window {
         background-color: #000;
         color: #32cd32
+    }
+
+    #settings-header {
+        background: #222;
+        color: white;
+        padding: 8px;
+        cursor: grab;
+        font-weight: bold;
+        user-select: none; /* Prevent text selection while dragging */
+    }
+    #settings-header:active {
+        cursor: grabbing;
     }
 
     .window-header {
@@ -400,6 +424,34 @@
     .window-content {
         padding: 10px;
     }
+
+    #settings-wallpaper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        position: relative; /* Ensures it's positioned properly */
+        z-index: 10; /* Ensures it's above other elements */
+    }
+    
+    #wallpaper-select {
+        display: block;
+        padding: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background-color: white;
+        color: black;
+        appearance: auto; /* Ensures native dropdown styling */
+    }
+    
+    #wallpaper-select:focus {
+        outline: none; /* Removes unwanted focus outlines */
+    }
+    
+    #settings-wallpaper label {
+        cursor: pointer;
+    }
+    
 
     .close-button {
         background-color: red;
@@ -484,6 +536,66 @@
     input:checked + .slider:before {
         transform: translateX(14px);
     }
+
+    /* Default (Light Mode) Styles */
+    #readme-window {
+        position: absolute;
+        top: 120px;
+        left: 200px;
+        width: 1000px;
+        height: 500px;
+        background-color: white; /* Light mode background */
+        color: black; /* Light mode text */
+        font-family: monospace;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #444;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        resize: both;
+        overflow: auto;
+    }
+
+    /* Dark Mode Styles */
+    .dark-mode #readme-window {
+        background-color: black;
+        color: #32cd32; /* Terminal green */
+        border: 2px solid #444;
+    }
+
+    /* Window Header */
+    .window-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ddd;
+        padding: 5px;
+        cursor: move;
+    }
+
+    .dark-mode .window-header {
+        background-color: #222;
+    }
+
+    /* Window Content */
+    .window-content {
+        padding: 10px;
+        white-space: pre-wrap;
+    }
+
+    /* Close Button */
+    .close-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 2px 5px;
+        font-size: 14px;
+        border-radius: 3px;
+    }
+
 
     /* Hidden Class */
     .hidden {

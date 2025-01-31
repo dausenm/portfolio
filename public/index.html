@@ -43,6 +43,11 @@
     <img id="terminal-icon" src="assets/terminal-icon.png" alt="Terminal Icon">
     <span class="icon-caption">Terminal</span>
   </div>
+
+  <div class="desktop-icon">
+    <img id="readme-icon" src="assets/txt-icon.png" alt="README Icon">
+    <span class="icon-caption">README.txt</span>
+  </div>
   
   <!-- Terminal Element (Initially hidden) -->
   <div id="terminal" class="hidden">
@@ -59,6 +64,39 @@
       <span id="terminal-input-prompt">user> </span>
       <input id="terminal-input" type="text" autofocus />
     </div>
+</div>
+
+<!-- README Window -->
+<div id="readme-window" class="window hidden">
+  <div id="readme-header" class="window-header">
+      <span>README.txt</span>
+      <button class="close-btn" onclick="toggleReadme()">X</button>
+  </div>
+  <div class="window-content">
+      <pre>
+          Welcome to my portfolio website!
+
+          I'm Dausen Mason, a developer with a passion for building cool projects.
+          This site is designed like a virtual desktop, where you can navigate through
+          various elements as if it were a real OS.
+
+          Features:
+          - A work in progress terminal (with limited functionality currently).
+          - Desktop icons for the terminal and other "apps".
+          - A dynamic taskbar with links to my socials and a working clock.
+          - A settings panel to customize your experience.
+          - A start menu with options to view my projects, resume, contact info, and settings.
+
+          Future Features:
+          - More terminal commands and functionality.
+          - A start menu with more options.
+          - A wallpaper selector.
+          - A projects folder to showcase my work.
+          - More apps to be included on the desktop.
+
+          Feel free to explore!
+      </pre>
+  </div>
 </div>
 
 <div id="resume-window" class="hidden">
@@ -90,7 +128,7 @@
 
 <!-- Settings Window -->
 <div id="settings-window" class="window hidden">
-  <div id="settings-header" class="window-header">
+  <div id="settings-header">
     <span>Settings</span>
     <button id="close-settings" class="close-button">X</button>
   </div>
@@ -105,7 +143,15 @@
           <span class="slider round"></span>
         </label>
       </div>
-      <li>🖼️ <b>Wallpaper:</b> Choose a background (Coming Soon!)</li>
+      <li>🖼️ <b>Wallpaper:</b> Choose a background</li>
+        <div id="settings-wallpaper">
+            <label for="wallpaper-select">Select Wallpaper:</label>
+            <select id="wallpaper-select">
+                <option value="xp.jpg">Classic XP</option>
+                <option value="mountain.jpg">Mountain</option>
+                <option value="gato.jpg">Gato</option>
+            </select>
+        </div>
       <li>🕒 <b>Clock Format:</b> 12-hour / 24-hour</li>
       <label class="switch">
         <input type="checkbox" id="time-format-toggle">

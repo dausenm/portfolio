@@ -334,7 +334,13 @@ document.getElementById("close-settings").addEventListener("click", function () 
   settingsWindow.classList.add("hidden");
 });
 
-dragElement(document.getElementById("settings-window"), document.getElementById("settings-header"));
+document.addEventListener("DOMContentLoaded", () => {
+  const settingsWindow = document.getElementById("settings-window");
+  const settingsHeader = document.getElementById("settings-header");
+  if (settingsWindow && settingsHeader) {
+      dragElement(settingsHeader, settingsWindow);
+  }
+});
 
 // Light mode / dark mode toggle
 // Get dark mode toggle switch
@@ -376,3 +382,48 @@ document.getElementById("time-format-toggle").addEventListener("change", functio
 
 // Set the toggle state based on saved preference
 document.getElementById("time-format-toggle").checked = localStorage.getItem("is24Hour") === "true";
+
+//README window
+// Toggle README.txt window
+function toggleReadme() {
+  let readmeWindow = document.getElementById("readme-window");
+  readmeWindow.classList.toggle("hidden");
+}
+
+// Open README.txt when clicking the icon
+document.getElementById("readme-icon").addEventListener("click", function() {
+  toggleReadme();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const readmeWindow = document.getElementById("readme-window");
+  const readmeHeader = document.getElementById("readme-header");
+
+  if (readmeWindow && readmeHeader) {
+      dragElement(readmeWindow, readmeHeader);
+  }
+});
+
+document.getElementById("wallpaper-select").disabled = false;
+
+//Change Background Image
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM fully loaded");  // Debugging line
+
+  let wallpaperSelect = document.getElementById("wallpaper-select");
+  if (!wallpaperSelect) {
+      console.error("Wallpaper select element not found!");
+      return;
+  }
+
+  wallpaperSelect.addEventListener("change", function () {
+      let selectedWallpaper = this.value;
+      console.log("Selected wallpaper:", selectedWallpaper);  // Debugging
+      document.body.style.backgroundImage = `url('assets/wallpapers/${selectedWallpaper}')`;
+  });
+});
+
+document.getElementById("wallpaper-select").addEventListener("click", function () {
+  console.log("Dropdown clicked!");
+});
+
