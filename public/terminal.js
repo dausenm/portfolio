@@ -22,43 +22,51 @@ function toggleTerminal() {
   printToTerminal(welcomeAscii); // Print welcome message to the terminal
 }
 
-// Draggable terminal window
-function dragElement(elmnt) {
+// Draggable Windows Function
+function makeDraggable(headerId, windowId) {
+  const header = document.getElementById(headerId);
+  const windowElement = document.getElementById(windowId);
+
+  if (!header || !windowElement) return; // Avoid errors if elements are missing
+
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
-  elmnt.onmousedown = function(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // Get the mouse cursor position at startup
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    document.onmousemove = elementDrag;
+  header.onmousedown = function (e) {
+      e = e || window.event;
+      if (e.target !== header) return; // Prevent dragging when clicking other elements inside header
+
+      e.preventDefault();
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+
+      document.onmouseup = closeDragElement;
+      document.onmousemove = elementDrag;
   };
 
   function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // Calculate the new cursor position
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // Set the element's new position
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+      e = e || window.event;
+      e.preventDefault();
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+
+      windowElement.style.top = (windowElement.offsetTop - pos2) + "px";
+      windowElement.style.left = (windowElement.offsetLeft - pos1) + "px";
   }
 
   function closeDragElement() {
-    document.onmouseup = null;
-    document.onmousemove = null;
+      document.onmouseup = null;
+      document.onmousemove = null;
   }
 }
 
-// Apply dragging functionality to terminal and resume
-document.addEventListener("DOMContentLoaded", function () {
-  dragElement(document.getElementById("terminal"));
-  dragElement(document.getElementById("resume-window"));
+document.addEventListener("DOMContentLoaded", () => {
+  makeDraggable("settings-header", "settings-window");
+  makeDraggable("resume-header", "resume-window");
+  makeDraggable("terminal-header", "terminal");
+  makeDraggable("contact-header", "contact-window");
+  makeDraggable("readme-header", "readme-window");
 });
 
 // Close terminal when 'X' button is clicked
@@ -320,9 +328,6 @@ document.getElementById("close-contact").addEventListener("click", function () {
   document.getElementById("contact-window").classList.add("hidden");
 });
 
-// Make Contact Window Draggable
-dragElement(document.getElementById("contact-window"));
-
 //Opens settings window
 document.getElementById("settings-option").addEventListener("click", function () {
   let settingsWindow = document.getElementById("settings-window");
@@ -332,14 +337,6 @@ document.getElementById("settings-option").addEventListener("click", function ()
 document.getElementById("close-settings").addEventListener("click", function () {
   let settingsWindow = document.getElementById("settings-window");
   settingsWindow.classList.add("hidden");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const settingsWindow = document.getElementById("settings-window");
-  const settingsHeader = document.getElementById("settings-header");
-  if (settingsWindow && settingsHeader) {
-      dragElement(settingsHeader, settingsWindow);
-  }
 });
 
 // Light mode / dark mode toggle
@@ -395,14 +392,6 @@ document.getElementById("readme-icon").addEventListener("click", function() {
   toggleReadme();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const readmeWindow = document.getElementById("readme-window");
-  const readmeHeader = document.getElementById("readme-header");
-
-  if (readmeWindow && readmeHeader) {
-      dragElement(readmeWindow, readmeHeader);
-  }
-});
 
 document.getElementById("wallpaper-select").disabled = false;
 
