@@ -23,6 +23,11 @@
     /* Adjust icon positions */
     .desktop-icon:nth-child(3) { top: 16px; left: 16px; } /* GitHub */
     .desktop-icon:nth-child(4) { top: 120px; left: 16px; } /* README */
+    .desktop-icon:nth-child(5) { top: 234px; left: 16px; } /* NVNTRY */
+    .desktop-icon:nth-child(5) img {transform: scale(1.3)}
+    .desktop-icon:nth-child(6) { top: 348px; left: 16px; } /* Movemint */
+    .desktop-icon:nth-child(6) img {transform: scale(1.4)}
+    .desktop-icon:nth-child(7) { top: 462px; left: 16px; } /* Nocturnal Website */
 
     .desktop-icon img {
         width: 64px; /* Ensure all icons are uniform */
@@ -596,6 +601,56 @@
         border-radius: 3px;
     }
 
+    .app-window {
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        width: 600px;
+        height: 400px;
+        background-color: white;
+        color: black;
+        font-family: monospace;
+        padding: 0;
+        border-radius: 8px;
+        border: 2px solid #444;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .dark-mode .app-window {
+        background-color: #000;
+        color: #32cd32;
+        border-color: #333;
+      }
+      
+      .window-header {
+        background-color: #222;
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: move;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .window-body {
+        flex-grow: 1;
+        padding: 15px;
+        overflow: auto;
+      }
+      
+      .close-button {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+      }      
 
     /* Hidden Class */
     .hidden {

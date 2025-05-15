@@ -67,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
   makeDraggable("terminal-header", "terminal");
   makeDraggable("contact-header", "contact-window");
   makeDraggable("readme-header", "readme-window");
+  makeDraggable("nvntry-header", "nvntry-window");
+  makeDraggable("movemint-header", "movemint-window");
+  makeDraggable("nocturnal-header", "nocturnal-window");
 });
 
 // Close terminal when 'X' button is clicked
@@ -421,4 +424,16 @@ document.getElementById("projects-option").addEventListener("click", function ()
   window.open("https://github.com/dausenm?tab=repositories", "_blank");
 });
 
+//Clicking icons opens their respective windows
+document.getElementById("nvntry-icon").addEventListener("click", () => {
+  document.getElementById("nvntry-window").classList.toggle("hidden");
+});
+
+document.getElementById("movemint-icon").addEventListener("click", () => {
+  document.getElementById("movemint-window").classList.toggle("hidden");
+});
+
+document.getElementById("nocturnal-icon").addEventListener("click", () => {
+  document.getElementById("nocturnal-window").classList.toggle("hidden");
+});
 
