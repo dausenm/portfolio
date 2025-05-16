@@ -70,6 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
   makeDraggable("nvntry-header", "nvntry-window");
   makeDraggable("movemint-header", "movemint-window");
   makeDraggable("nocturnal-header", "nocturnal-window");
+  makeDraggable("experience-header", "experience-window");
+  makeDraggable("about-header", "about-window");
 });
 
 // Close terminal when 'X' button is clicked
@@ -139,7 +141,7 @@ terminalInput.addEventListener('keydown', function (event) {
       
       terminalInput.value = ''; // Clear input field
       
-      const helpMessage = "list of available commands:\n\t- help: displays a lit of available commands\n\t- stop: closes the terminal\n\t- clear: clears the terminal contents\n\t- resume: prints my resume to the terminal.\n";
+      const helpMessage = "list of available commands:\n\t- help: displays a lit of available commands\n\t- stop: closes the terminal\n\t- clear: clears the terminal contents\n\t- resume: prints my resume to the terminal.\n\t- readme: displays README.txt\n\t- nvntry: opens NVNTRY application window\n\t- movemint: opens Movemint app window\n\t- nocturnal: opens Nocturnal Tavern website window\n\t- experience: opens work experience window\n\t- contact: opens contact info window\n\t- about: opens about me window";
       printToTerminal(helpMessage);
   
       terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
@@ -179,6 +181,76 @@ terminalInput.addEventListener('keydown', function (event) {
     
       // Toggle the resume window to show the embedded PDF
     }
+    else if (inputValue.toLowerCase() === 'readme') {
+      const lastPromptContainer = terminalOutput.lastChild;
+      const userInput = document.createElement('span');
+      userInput.textContent = inputValue; // This is the 'help' input
+      lastPromptContainer.appendChild(userInput); // Add input to the last prompt
+      terminalInput.value = ''; // Clear input field
+      toggleReadme();
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
+    else if (inputValue.toLowerCase() === 'nvntry') {
+      const lastPromptContainer = terminalOutput.lastChild;
+      const userInput = document.createElement('span');
+      userInput.textContent = inputValue; // This is the 'help' input
+      lastPromptContainer.appendChild(userInput); // Add input to the last prompt
+      terminalInput.value = ''; // Clear input field
+      document.getElementById("nvntry-window").classList.toggle("hidden");
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
+    else if (inputValue.toLowerCase() === 'movemint') {
+      const lastPromptContainer = terminalOutput.lastChild;
+      const userInput = document.createElement('span');
+      userInput.textContent = inputValue; // This is the 'help' input
+      lastPromptContainer.appendChild(userInput); // Add input to the last prompt
+      terminalInput.value = ''; // Clear input field
+      document.getElementById("movemint-window").classList.toggle("hidden");
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
+    else if (inputValue.toLowerCase() === 'nocturnal') {
+      const lastPromptContainer = terminalOutput.lastChild;
+      const userInput = document.createElement('span');
+      userInput.textContent = inputValue; // This is the 'help' input
+      lastPromptContainer.appendChild(userInput); // Add input to the last prompt
+      terminalInput.value = ''; // Clear input field
+      document.getElementById("nocturnal-window").classList.toggle("hidden");
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
+    else if (inputValue.toLowerCase() === 'contact') {
+      const lastPromptContainer = terminalOutput.lastChild;
+      const userInput = document.createElement('span');
+      userInput.textContent = inputValue; // This is the 'help' input
+      lastPromptContainer.appendChild(userInput); // Add input to the last prompt
+      terminalInput.value = ''; // Clear input field
+      document.getElementById("contact-window").classList.toggle("hidden");
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
+    else if (inputValue.toLowerCase() === 'experience') {
+      const lastPromptContainer = terminalOutput.lastChild;
+      const userInput = document.createElement('span');
+      userInput.textContent = inputValue; // This is the 'help' input
+      lastPromptContainer.appendChild(userInput); // Add input to the last prompt
+      terminalInput.value = ''; // Clear input field
+      document.getElementById("experience-window").classList.toggle("hidden");
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
+    else if (inputValue.toLowerCase() === 'about') {
+      const lastPromptContainer = terminalOutput.lastChild;
+      const userInput = document.createElement('span');
+      userInput.textContent = inputValue; // This is the 'help' input
+      lastPromptContainer.appendChild(userInput); // Add input to the last prompt
+      terminalInput.value = ''; // Clear input field
+      document.getElementById("about-window").classList.toggle("hidden");
+  
+      terminalOutput.appendChild(document.createElement('br')); // Line break for new prompt
+    }
     else if (inputValue) {
       // Check if there's a last prompt container before appending
       const lastPromptContainer = terminalOutput.lastChild;
@@ -208,41 +280,67 @@ function printToTerminal(message) {
 
 // ASCII version of the resume
 const asciiResume = `
-----------------------------------------------
-            DAUSEN MASON 
-   Aspiring Software Developer | Bartender
-----------------------------------------------
+--------------------------------------------------
+                 DAUSEN MASON                  
+     Aspiring Software Developer | Bartender    
+--------------------------------------------------
+
 PROFILE
-  Recent Computer Science graduate with a passion for
-  software development and a background in service
-  industry. Seeking opportunities to grow and develop
-  my skills in the tech industry, as well as apply
-  skills developed in management and customer service.
-  Big fan of coffee, limp bizkit, video games,
-  and lays salt and vinegar.
+  Recent Computer Science graduate with a passion for 
+  full-stack and application development. Experienced 
+  in cloud deployment, UI/UX design, and cross-platform 
+  development. Background in management and service 
+  industry brings strong leadership and communication skills.
 
 EXPERIENCE
-  Lifeguard at TCPARA (2016-2019)
-    - Ensured pool safety, trained new guards.
-  
-  Shift Lead at Central Mesa (2019-Present)
-    - Managed operations, excelled in customer service.
+  General Manager - Nocturnal Tavern (2023–Present)
+    • Oversaw operations, led hiring/training, and improved workflow.
 
-  General Manager at Nocturnal Tavern (2023-Present)
-    - Team management, customer engagement, leadership skills.
+  Shift Lead - Central Mesa (2019–Present)
+    • Managed front-of-house, enhanced team efficiency, and 
+      delivered excellent customer experience.
 
-SKILLS
-  - C, C++, Python, Java, JavaScript, HTML/CSS
-  - React, Node.js, Streamlit, Limited experience with Docker
-  - SQL, MongoDB
-  - Limited experience with AWS, GCP
-  - Git version control
-  - MS Office + Adobe Creative Cloud
+  Lifeguard - TCPARA (2016–2019)
+    • Maintained pool safety and trained new staff.
+
+PROJECTS
+  📂 Portfolio Website (dausenmason.com)
+    • Node.js, Tailwind CSS, JavaScript
+    • Simulates a desktop environment with draggable windows,
+      interactive terminal, dynamic theming, and more.
+
+  📱 NVNTRY (Mobile App)
+    • Flutter, Dart, Hive
+    • Personal inventory tracker with dark mode, category sorting,
+      local storage, and mobile-first UI.
+
+  🎮 Movemint (Indie Game Prototype)
+    • C++, OpenGL
+    • Fast-paced, physics-driven movement prototype exploring 
+      momentum and fluid traversal mechanics.
+
+  🍸 Nocturnal Tavern Website
+    • Node.js, React, Tailwind CSS
+    • Developed a responsive, branded web presence with 
+      API integration and accessibility features.
+
+TECHNICAL SKILLS
+  • Languages: JavaScript, C++, Python, Java, Dart, HTML/CSS
+  • Frameworks: React, Node.js, Flutter
+  • Tools: Git, Figma, Docker (basic)
+  • Databases: Hive, MongoDB, SQL
+  • Cloud: AWS (App Runner, Route 53, CloudFront), Netlify
 
 EDUCATION
-  The University of Alabama (2019-2024)
+  The University of Alabama (2019–2024)
   B.S. in Computer Science
-----------------------------------------------
+
+--------------------------------------------------
+  GitHub   : github.com/dausenm
+  Website  : dausenmason.com
+  LinkedIn : linkedin.com/in/dausenmason
+--------------------------------------------------
+
 `;
 
 const welcomeAscii = `       __                           _          __                      _             __
@@ -250,7 +348,8 @@ const welcomeAscii = `       __                           _          __         
  / __  / __ \`/ / / / ___/ _ \\/ __ \\|// ___/  / __/ _ \\/ ___/ __ \`__ \\/ / __ \\/ __ \`/ / 
 / /_/ / /_/ / /_/ (__  )  __/ / / / (__  )  / /_/  __/ /  / / / / / / / / / / /_/ / /  
 \\__,_/\\__,_/\\__,_/____/\\___/_/ /_/ /____/   \\__/\\___/_/  /_/ /_/ /_/_/_/ /_/\\__,_/_/   
-                                                                          version 0.69.420                                                                                     
+                                                                          version 0.69.420        
+                                                  Tip: Use 'help' for a list of available commands                                                                             
 `;
 
 
@@ -437,3 +536,10 @@ document.getElementById("nocturnal-icon").addEventListener("click", () => {
   document.getElementById("nocturnal-window").classList.toggle("hidden");
 });
 
+document.getElementById("experience-icon").addEventListener("click", () => {
+  document.getElementById("experience-window").classList.toggle("hidden");
+});
+
+document.getElementById("about-icon").addEventListener("click", () => {
+  document.getElementById("about-window").classList.toggle("hidden");
+});
