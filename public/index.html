@@ -100,21 +100,31 @@
             This site is designed like a virtual desktop, where you can navigate through
             various elements as if it were a real OS.
 
+            I highly recommend viewing this site on a desktop device, and activating fullscreen
+            mode while using the site.
+
             Features:
             - A work in progress terminal (with limited functionality currently).
             - Desktop icons for the terminal and other "apps".
             - A dynamic taskbar with links to my socials and a working clock.
             - A settings panel to customize your experience.
             - A start menu with options to view my projects, resume, contact info, and settings.
+            - A wallpaper selector (found in settings).
+            - Draggable windows (this seems like a basic feature, but took more time than I'm 
+              proud to admit to implement, so i'm putting it here).
 
             Future Features:
             - More terminal commands and functionality.
-            - A start menu with more options.
-            - A wallpaper selector.
+            - More start menu options.
             - A projects folder to showcase my work.
             - More apps to be included on the desktop.
+            - Mobile friendly version of the site.
+            - Accessibility features (colorblind mode, screen reader support, etc.)
 
             Feel free to explore!
+
+            Shoutout to Callum for the desktop icon designs, Windows XP for the incredible background image, 
+              and Netlify for not charging me a ridiculous amount of money per month to host (looking at you, AWS).
         </pre>
     </div>
   </div>
@@ -125,8 +135,31 @@
       <span>NVNTRY</span>
       <button class="close-button" onclick="document.getElementById('nvntry-window').classList.add('hidden')">X</button>
     </div>
-    <div class="window-body">
-      <!-- Content coming soon -->
+    <div class="window-content">
+      🧾 NVNTRY
+
+      Type: Mobile App
+      Tech Stack: Flutter, Hive, Dart
+      Description:
+      NVNTRY is a personal inventory tracker designed to allow users to have the organization and peace of mind that businesses gain with their inventory tracking systems. The app includes features like dark mode, category sorting, and persistent local storage using Hive.
+
+      What I learned:
+
+          State management in Flutter
+
+          Working with NoSQL local databases
+
+          Creating responsive mobile UIs
+
+      Demo:
+
+      <video src="assets/nvntry/demo.webm" autoplay muted loop playsinline style="width: 40%; border-radius: 6px;"></video>
+
+      Future features will include:
+        - Adding images to items
+        - Barcode scanning for faster item entry
+        - Analytics to help users determine when they'll need more of something.
+
     </div>
   </div>
 
@@ -136,8 +169,29 @@
       <span>Movemint</span>
       <button class="close-button" onclick="document.getElementById('movemint-window').classList.add('hidden')">X</button>
     </div>
-    <div class="window-body">
-      <!-- Content coming soon -->
+    <div class="window-content">
+      🎮 Movemint
+
+      Type: Indie Game Prototype
+      Tech Stack: C++, OpenGL
+      Description:
+      Movemint is a fast-paced, physics-based movement prototype inspired by characters such as Spider-Man. Focused on fluid momentum and player control, the prototype will eventually explore innovative movement mechanics in a 3D environment. While the most recent stable version of the game is a simple 2D world with limited functinality, this ambitious project will continue to teach me new concepts like 3D graphics rendering, and reinforce previous learnings such as manual memory management and linear algebra. Recently, it has also taught me lots about segmentation faults.
+
+      What I learned:
+
+          Manual memory management and game loop design
+
+          OpenGL for rendering
+
+          Physics implementation in C++
+
+      Early Version Demo:
+
+      <video src="assets/movemint/movemint.webm" autoplay muted loop playsinline style="width: 60%; border-radius: 6px;"></video>
+
+      Current Version Demo:
+
+      <img src="assets/movemint/segfault.png" style="width: 60%; border-radius: 6px;"></img>
     </div>
   </div>
 
@@ -147,8 +201,31 @@
       <span>Nocturnal Tavern</span>
       <button class="close-button" onclick="document.getElementById('nocturnal-window').classList.add('hidden')">X</button>
     </div>
-    <div class="window-body">
-      <!-- Content coming soon -->
+    <div class="window-content">
+      🍸 Nocturnal Tavern Website
+
+      Type: Business Website
+      Tech Stack: Node.js, React, Tailwind CSS
+      Description:
+      A sleek and accessible website designed to showcase Nocturnal Tavern’s menu, events, and atmosphere. The site includes hover-activated links, an embedded Instagram feed, and responsive design.
+
+      What I learned:
+
+          Frontend animations modular designs
+
+          API integration for dynamic content
+
+          Real-world UX improvements based on feedback
+
+      Demo:
+
+      (Note: lots of placeholder content here, as well as missing images being replaced with alt text)
+
+      <video src="assets/nocturnal/homescreen.webm" autoplay muted loop playsinline style="width: 60%; border-radius: 6px;"></video>
+
+      <img src="assets/nocturnal/menu.png" style="width: 60%; border-radius: 6px;"></img>
+
+      <img src="assets/nocturnal/about.png" style="width: 60%; border-radius: 6px;"></img>
     </div>
   </div>
 
@@ -210,7 +287,7 @@
         <input type="checkbox" id="time-format-toggle">
         <span class="slider round"></span>
       </label>
-      <li>🔄 <b>Reset to Default</b></li>
+      <!-- <li>🔄 <b>Reset to Default</b></li> -->
     </ul>
   </div>
 </div>
