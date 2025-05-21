@@ -172,6 +172,26 @@
         - Barcode scanning for faster item entry
         - Analytics to help users determine when they'll need more of something.
 
+
+        ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        🛠️ Dev Log
+
+        05/20/2025:
+
+        Today I focused on implementing 4 things:
+          - Set up an android emulator to test on a virtual mobile device.
+          - Refactored the home screen UX to improve category navigation:
+            -The screen now shows 1 category at a time, with swipeable tabs to navigate between them.
+            -I wrapped the original Scaffold in a DefaultTabController, adn dynamically build a TabBar
+             from the user's stored categories.
+            -Items are filtered based on the currently displayed category.
+          -Added a search feature for quickly locating items.
+          -Automated data population when the user has no stored items - this makes testing much easier.
+
+        Overall, I’m really enjoying the development process in Flutter. The VSCode extension makes debugging simple,
+        and I love how it visually connects closing brackets to their corresponding blocks — it’s been a huge help
+        when dealing with nested widgets.
     </div>
   </div>
 
