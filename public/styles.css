@@ -218,6 +218,7 @@
         opacity: 0;
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
         z-index: -1;
+        pointer-events: none;
     }
 
     #start-menu.show {
@@ -233,7 +234,7 @@
         pointer-events: auto;
     }
 
-    #start-menu:not(.show) #start-menu-list {
+    #start-menu:not(.show) .start-menu-list {
         pointer-events: none;
     }
     
