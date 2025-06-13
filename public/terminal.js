@@ -382,31 +382,6 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock(); // Initial call
 
-//Start Menu
-document.getElementById("start-button").addEventListener("click", function () {
-  console.log("Start button clicked");
-  let startMenu = document.getElementById("start-menu");
-  startMenu.classList.toggle("show");
-});
-
-// Close the menu if clicking anywhere outside of it
-document.addEventListener("click", (event) => {
-  let startMenu = document.getElementById("start-menu");
-  let startButton = document.getElementById("start-button");
-
-  // If clicking outside the start menu AND not on the start button
-  if (!startMenu.contains(event.target) && !startButton.contains(event.target)) {
-    console.log("Clicked outside of the start menu, closing it.");
-    startMenu.classList.remove("show");
-  }
-});
-
-//Opens resume window
-document.getElementById("resume-option").addEventListener("click", function () {
-  let resumeWindow = document.getElementById("resume-window");
-  resumeWindow.classList.toggle("hidden");
-});
-
 // Close button functionality
 document.getElementById("resume-close-button").addEventListener("click", function () {
   let resumeWindow = document.getElementById("resume-window");
@@ -419,21 +394,11 @@ document.getElementById("fullscreen-button").addEventListener("click", function 
   resumeContent.classList.toggle("fullscreen");
 });
 
-// Contact Window
-document.getElementById("contact-option").addEventListener("click", function () {
-  let contactWindow = document.getElementById("contact-window");
-  contactWindow.classList.toggle("hidden");
-});
+
 
 // Close Contact Window
 document.getElementById("close-contact").addEventListener("click", function () {
   document.getElementById("contact-window").classList.add("hidden");
-});
-
-//Opens settings window
-document.getElementById("settings-option").addEventListener("click", function () {
-  let settingsWindow = document.getElementById("settings-window");
-  settingsWindow.classList.toggle("hidden");
 });
 
 document.getElementById("close-settings").addEventListener("click", function () {
@@ -494,7 +459,6 @@ document.getElementById("readme-icon").addEventListener("click", function() {
   toggleReadme();
 });
 
-
 document.getElementById("wallpaper-select").disabled = false;
 
 //Change Background Image
@@ -518,9 +482,75 @@ document.getElementById("wallpaper-select").addEventListener("click", function (
   console.log("Dropdown clicked!");
 });
 
-// Open GitHub repositories when clicking "Projects"
-document.getElementById("projects-option").addEventListener("click", function () {
+//YAY REFACTORING!
+// Handle clicks on desktop icons
+function handleProjectsClick() {
   window.open("https://github.com/dausenm?tab=repositories", "_blank");
+}
+
+function HandleSettingsClick() {
+  document.getElementById("settings-window").classList.toggle("hidden");
+}
+
+function handleContactClick() {
+  document.getElementById("contact-window").classList.toggle("hidden");
+}
+
+function handleResumeClick() {
+  document.getElementById("resume-window").classList.toggle("hidden");
+}
+
+//START MENU OPTIONS
+//Start Menu
+document.getElementById("start-button").addEventListener("click", function () {
+  console.log("Start button clicked");
+  let startMenu = document.getElementById("start-menu");
+  startMenu.classList.toggle("show");
+
+  // This will prevent start menu options from being clickable when the menu is closed (hopefully)
+  if(startMenu.classList.contains("show")) {
+    console.log("Start menu is now visible, adding event listeners to options.");
+    const projectsOption = document.getElementById("projects-option");
+    const settingsOption = document.getElementById("settings-option");
+    const contactOption = document.getElementById("contact-option");
+    const resumeOption = document.getElementById("resume-option");
+
+    if(startMenu.classList.contains("show")) {
+      projectsOption.addEventListener("click", handleProjectsClick);
+      settingsOption.addEventListener("click", HandleSettingsClick);
+      contactOption.addEventListener("click", handleContactClick);
+      resumeOption.addEventListener("click", handleResumeClick);
+    }
+  }
+  else {
+    console.log("Start menu is now hidden, removing event listeners from options.");
+    projectsOption.removeEventListener("click", handleProjectsClick);
+    settingsOption.removeEventListener("click", HandleSettingsClick);
+    contactOption.removeEventListener("click", handleContactClick);
+    resumeOption.removeEventListener("click", handleResumeClick);
+  }
+});
+
+// Close the menu if clicking anywhere outside of it
+document.addEventListener("click", function (event) {
+  const startMenu = document.getElementById("start-menu");
+  const startButton = document.getElementById("start-button");
+  const projectsOption = document.getElementById("projects-option");
+  const settingsOption = document.getElementById("settings-option"); 
+  const contactOption = document.getElementById("contact-option");
+  const resumeOption = document.getElementById("resume-option");
+
+  // Check if the clicked element is not the start button or the start menu
+  if (!startButton.contains(event.target)) {
+    if (startMenu.classList.contains("show")) {
+      startMenu.classList.remove("show"); // Hide the start menu
+      console.log("Start menu closed");
+      projectsOption.removeEventListener("click", handleProjectsClick);
+      settingsOption.removeEventListener("click", HandleSettingsClick);
+      contactOption.removeEventListener("click", handleContactClick);
+      resumeOption.removeEventListener("click", handleResumeClick);
+    }
+  }
 });
 
 //Clicking icons opens their respective windows

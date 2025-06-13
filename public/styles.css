@@ -217,19 +217,24 @@
         padding: 10px;
         opacity: 0;
         transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-        z-index: 9999;
+        z-index: -1;
     }
 
     #start-menu.show {
         opacity: 1;
+        z-index : 1000;
     }
-    
     
     .start-menu-list {
         list-style: none;
         color: cyan;
         padding: 0;
         margin: 0;
+        pointer-events: auto;
+    }
+
+    #start-menu:not(.show) #start-menu-list {
+        pointer-events: none;
     }
     
     .start-menu-list li {
@@ -662,5 +667,6 @@
     /* Hidden Class */
     .hidden {
         display: none !important;
+        pointer-events: none;
     }
     
