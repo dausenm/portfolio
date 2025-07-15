@@ -74,13 +74,18 @@
     <span class="icon-caption">Nocturnal Website</span>
   </div>
 
+  <!-- Ticket Sales App Icon-->
+  <div class="desktop-icon">
+    <img id="ticket-icon" src="assets/ticket-icon.png" alt="Ticket Sales App Icon">
+    <span class="icon-caption">Ticket Sales App</span>
+  </div>
+
   <!--Work Experience Icon-->
   <div class="desktop-icon">
-    <img id="experience-icon" src="assets/experience-icon.png" alt="Experience Icon">
+    <img id="experience-icon" src="assets/experience-icon.png" alt="Experience App Icon">
     <span class="icon-caption">Work Experience</span>
   </div>
 
-  
   <!-- Terminal Element (Initially hidden) -->
   <div id="terminal" class="hidden">
       <!-- Terminal Header and Close Button -->
@@ -418,6 +423,54 @@
     </ul>
   </div>
 </div>
+
+ <!--Ticket App Window-->
+  <div id="ticket-app-window" class="app-window hidden">
+    <div id="ticket-app-header" class="window-header">
+      <span>Ticket Sales App</span>
+      <button class="close-button" onclick="document.getElementById('ticket-app-window').classList.add('hidden')">X</button>
+    </div>
+    <div class="window-content">
+    <span>📱 Ticket Sales App</span>
+    Type: Mobile App  
+      Tech Stack: Flutter, Dart, Riverpod, Provider, Mock Backend  
+      Description:  
+      The Event Ticket App simulates a mobile ticketing platform where users can browse public events and purchase tickets to them. Built for a take-home assignment, it showcases layered architecture, a remote backend, and responsive design.
+
+      What I learned:
+
+          Using Riverpod and Provider for state management
+
+          Architecting scalable Flutter apps with separation of concerns
+
+          Building UI for consumers
+
+          Creating REST APIs and integrating them with Flutter
+
+          Connecting a Flutter app to a remote backend service
+
+
+      <a href="https://github.com/dausenm/eventeny_app" target="_blank">View Code on GitHub</a>
+    </p>
+    <video controls width="25%" style="margin-top: 10px;">
+      <source src="assets/ticket-app/demo.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+
+    Demo Video Showcasing the app's features.
+
+    <img src="assets/ticket-app/ERD.png" style="width: 70%; margin-top: 10px; border-radius: 6px;">
+
+    Entity Relationship Diagram (ERD) for the app's data model, showing how events, tickets, and purchases are related.
+
+
+    Future features will include:
+      - User authentication and profile management
+      - Event creation and management for organizers
+      - Payment integration for real transactions
+      - Enhanced UI/UX with animations and transitions
+  </div>
+  </div>
 
   <script src="/terminal.js"></script> <!-- External JS for terminal logic -->
 

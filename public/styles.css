@@ -30,6 +30,7 @@
     .desktop-icon:nth-child(7) img {transform: scale(1.4)}
     .desktop-icon:nth-child(8) { top: 586px; left: 16px; } /* Nocturnal Website */
     .desktop-icon:nth-child(9) { top: 700px; left: 16px; } /* Work Experience */
+    .desktop-icon:nth-child(10) { top: 16px; left: 128px; } /* Ticket Sales App */
 
     .desktop-icon img {
         width: 64px; /* Ensure all icons are uniform */

@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   makeDraggable("nocturnal-header", "nocturnal-window");
   makeDraggable("experience-header", "experience-window");
   makeDraggable("about-header", "about-window");
+  makeDraggable("ticket-app-header", "ticket-app-window");
 });
 
 // Close terminal when 'X' button is clicked
@@ -572,4 +573,8 @@ document.getElementById("experience-icon").addEventListener("click", () => {
 
 document.getElementById("about-icon").addEventListener("click", () => {
   document.getElementById("about-window").classList.toggle("hidden");
+});
+
+document.getElementById("ticket-icon").addEventListener("click", () => {
+  document.getElementById("ticket-app-window").classList.toggle("hidden");
 });
